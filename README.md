@@ -12,7 +12,6 @@ An iOS app that helps users build daily habits using photo verification and AI i
 - Cloud Vision API (image labeling)
 - Alamofire API Requests
 - AVFoundation Camera Integration
-- 
 
 ## Screenshots
 
