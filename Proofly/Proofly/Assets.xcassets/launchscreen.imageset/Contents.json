@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "prooflylaunchscreen.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
