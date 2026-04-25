@@ -15,9 +15,9 @@ An iOS app that helps users build daily habits using photo verification and AI i
 
 ## Screenshots
 
-![Home Screen](screenshots/log.jpg)
-![Camera / Logging](screenshots/camera.png)
-![Stats Page](screenshots/habits.jpg)
+![Home Screen](./screenshots/log.jpg)
+![Camera / Logging](./screenshots/camera.png)
+![Stats Page](./screenshots/habits.jpg)
 
 ## Demo Video
 [Watch Demo](YOUR_YOUTUBE_LINK)
