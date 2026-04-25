@@ -23,7 +23,7 @@ final class APIClient {
     private init() {}
 
     func uploadImageData(_ imageData: Data) async throws -> UploadResponse {
-        let urlString = backendUrl // In Secrets.swift file
+        let urlString = Secrets.backendUrl // In Secrets.swift file
         print("Logging Data")
         guard let url = URL(string: urlString) else {
             throw UploadError.badURL

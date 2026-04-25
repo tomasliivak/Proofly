@@ -18,74 +18,81 @@ struct ProfileView: View {
     @State private var totalCompleted = 0
     @State private var totalUncompleted = 0
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("Your Stats")
+        ZStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Your Stats")
+                        .font(.title)
+                        .bold()
+                    Spacer()
+                    Button("Sign Out") {
+                        do {
+                            try Auth.auth().signOut()
+                            print("🪵➡️ Log out successful!")
+                            isLoggedIn = false
+                        } catch {
+                            print("😡 ERROR: Could not sign out!")
+                        }
+                    }
                     .font(.title)
-                    .bold()
-                Spacer()
-                Button("Sign Out") {
-                    do {
-                        try Auth.auth().signOut()
-                        print("🪵➡️ Log out successful!")
-                        isLoggedIn = false
-                    } catch {
-                        print("😡 ERROR: Could not sign out!")
-                    }
+                    .buttonStyle(.glassProminent)
+                    .tint(.primarycolor)
+                    .foregroundStyle(.white)
                 }
-                .font(.title)
-                .buttonStyle(.glassProminent)
-                .tint(.primarycolor)
-                .foregroundStyle(.white)
-            }
-            HStack {
-                VStack(alignment: .leading) {
-                    HStack{
-                        Image(systemName: "flame.fill")
-                            .foregroundStyle(.orange)
-                            .font(.title)
-                        Text("Current Streak: ")
-                        Text("\(longestDailyStreak())")
-                            .bold()
+                HStack {
+                    VStack(alignment: .leading) {
+                        HStack{
+                            Image(systemName: "flame.fill")
+                                .foregroundStyle(.orange)
+                                .font(.title)
+                            Text("Current Streak: ")
+                            Text("\(longestDailyStreak())")
+                                .bold()
+                        }
+                        .padding(.bottom)
+                        HStack(alignment: .bottom) {
+                            Image(systemName: "camera.fill")
+                            Text("Total Logs: ")
+                            Text("\(logCount())")
+                                .bold()
+                        }
+                        .padding(.bottom)
+                        HStack(alignment: .bottom) {
+                            Image(systemName: "figure.run")
+                                .foregroundStyle(.green)
+                            Text("Completed Daily Habits: ")
+                            Text("\(totalCompleted)")
+                                .bold()
+                        }
+                        .padding(.bottom)
+                        HStack(alignment: .bottom) {
+                            Image(systemName: "chart.bar.xaxis")
+                                .foregroundStyle(.mint)
+                            Text("Completation Rate")
+                            Text("\(totalUncompleted != 0 ? Int(Double(totalCompleted)/Double(totalUncompleted+totalCompleted)*100) : 0)%")
+                                .bold()
+                        }
                     }
-                    .padding(.bottom)
-                    HStack(alignment: .bottom) {
-                        Image(systemName: "camera.fill")
-                        Text("Total Logs: ")
-                        Text("\(logCount())")
-                            .bold()
-                    }
-                    .padding(.bottom)
-                    HStack(alignment: .bottom) {
-                        Image(systemName: "figure.run")
-                            .foregroundStyle(.green)
-                        Text("Completed Daily Habits: ")
-                        Text("\(totalCompleted)")
-                            .bold()
-                    }
-                    .padding(.bottom)
-                    HStack(alignment: .bottom) {
-                        Image(systemName: "chart.bar.xaxis")
-                            .foregroundStyle(.mint)
-                        Text("Completation Rate")
-                        Text("\(totalUncompleted != 0 ? Int(Double(totalCompleted)/Double(totalUncompleted+totalCompleted)*100) : 0)%")
-                            .bold()
-                    }
+                    Spacer()
                 }
+                .padding(18)
+                .background(.cardcolor)
+                .clipShape(RoundedRectangle(cornerRadius: 24))
+                .shadow(color: .black.opacity(0.05), radius: 6, x: 0, y: 2)
                 Spacer()
             }
-            .padding(18)
-            .background(.cardcolor)
-            .clipShape(RoundedRectangle(cornerRadius: 24))
-            .shadow(color: .black.opacity(0.05), radius: 6, x: 0, y: 2)
-            Spacer()
+            .padding(.horizontal)
+            .task {
+                await loadData()
+                allCompletionStats()
+            }
+            
+            if isLoading {
+                ProgressView()
+                    .scaleEffect(4)
+                    .tint(.primarycolor)
+            }
         }
-        .padding(.horizontal)
-        .task {
-            await loadData()
-            allCompletionStats()
-        }
-        
         }
     
     func longestDailyStreak() -> Int { // lowkey should refactor this into a seperate file
