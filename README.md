@@ -17,7 +17,7 @@ An iOS app that helps users build daily habits using photo verification and AI i
 
 <p align="center">
   <img src="./screenshots/log.jpg" alt="Home Screen" width="250"/>
-  <img src="./screenshots/camera.png" alt="Camera / Logging" width="250"/>
+  <img src="./screenshots/camera.jpg" alt="Camera / Logging" width="250"/>
   <img src="./screenshots/habits.jpg" alt="Stats Page" width="250"/>
 </p>
 
