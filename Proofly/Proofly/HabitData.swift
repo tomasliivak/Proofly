@@ -82,15 +82,15 @@ struct HabitData { // prolly should change
         ),
         LocalHabit(
             name: "Read",
-            keywords: ["book", "textbook", "paper", "pages", "office supplies"]
+            keywords: ["book", "textbook", "paper", "pages", "office supplies", "paper product"]
         ),
         LocalHabit(
             name: "Drink Water",
-            keywords: ["water", "bottle", "drink", "glass", "cylinder", "water bottle"]
+            keywords: ["water", "bottle", "drink", "cylinder", "water bottle", "cup"]
         ),
         LocalHabit(
             name: "Workout",
-            keywords: ["dumbbell", "barbell", "gym", "fitness", "yoga mat","shoes"]
+            keywords: ["dumbbell", "barbell", "gym", "fitness", "yoga mat","shoes", "sneakers", "shoe"]
         ),
         LocalHabit(
             name: "Eat Fruit",

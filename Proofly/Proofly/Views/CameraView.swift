@@ -61,6 +61,7 @@ struct CameraView: View {
                             Text(habit.type.displayName)
                                 .tag(habit.id)
                                 .foregroundStyle(.white)
+                                .minimumScaleFactor(0.5)
                         }
                     }
                     .pickerStyle(.wheel)

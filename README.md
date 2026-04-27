@@ -22,4 +22,8 @@ An iOS app that helps users build daily habits using photo verification and AI i
 </p>
 
 ## Demo Video
-[Watch Demo](YOUR_YOUTUBE_LINK)
+[Watch Demo](https://www.youtube.com/watch?v=J-94mdp_NZ0)
+
+## Setup Instructions
+
+ipconfig getifaddr en0

@@ -4,6 +4,8 @@
 Secrets.swift
 .env
 .env.*
+GoogleService-Info.plist
+*.private.plist
 
 # =========================
 # macOS
