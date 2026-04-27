@@ -26,4 +26,4 @@ An iOS app that helps users build daily habits using photo verification and AI i
 
 ## Setup Instructions
 
-ipconfig getifaddr en0
+ipconfig getifaddr en0 // under progress
