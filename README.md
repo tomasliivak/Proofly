@@ -40,7 +40,7 @@ An iOS app that helps users build daily habits using photo verification and AI i
 Run:
 
     git clone https://github.com/tomasliivak/Proofly
-    cd ProoflyIOSProject
+    cd Proofly
 
 Project structure:
 
